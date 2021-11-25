@@ -5,9 +5,11 @@ import java.time.LocalDateTime;
 public class Intervention implements Comparable<Intervention>{
     private final InterventionType type;
     private final LocalDateTime timestamp;
+    private final Delegate owner;
 
-    public Intervention(InterventionType type)
+    public Intervention(Delegate owner, InterventionType type)
     {
+        this.owner = owner;
         this.type = type;
         timestamp = LocalDateTime.now();
     }
@@ -20,5 +22,13 @@ public class Intervention implements Comparable<Intervention>{
         }
 
         return priorityOrder;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof Intervention)
+            return this.compareTo((Intervention) obj) == 0;
+
+        return false;
     }
 }

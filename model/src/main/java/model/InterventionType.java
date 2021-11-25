@@ -1,8 +1,9 @@
 package model;
 
 public enum InterventionType {
-    DIRECT_RESPONSE,
+    TECHNICAL_NOTE,
     INFORMATION_POINT,
-    JOKE,
-    TECHNICAL_NOTE;
+    DIRECT_INTERVENTION,
+    QUESTION_OR_NEW_TOPIC,
+    JOKE;
 }
