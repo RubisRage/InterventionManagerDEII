@@ -15,12 +15,17 @@ public class InterventionPriorityQueueTest {
     private Intervention directIntervention, joke, question, technicalNote, informationPoint;
 
     @BeforeEach
-     void setUp(){
-        directIntervention = new Intervention(new Delegate(),InterventionType.DIRECT_INTERVENTION);
-        joke = new Intervention(new Delegate(),InterventionType.JOKE);
-        question = new Intervention(new Delegate(),InterventionType.QUESTION_OR_NEW_TOPIC);
-        technicalNote = new Intervention(new Delegate(),InterventionType.TECHNICAL_NOTE);
-        informationPoint = new Intervention(new Delegate(),InterventionType.INFORMATION_POINT);
+    void setUp() {
+        directIntervention = new Intervention(new Delegate("testUserName", "testFullName"),
+                InterventionType.DIRECT_INTERVENTION);
+        joke = new Intervention(new Delegate("testUserName", "testFullName"),
+                InterventionType.JOKE);
+        question = new Intervention(new Delegate("testUserName", "testFullName"),
+                InterventionType.QUESTION_OR_NEW_TOPIC);
+        technicalNote = new Intervention(new Delegate("testUserName", "testFullName"),
+                InterventionType.TECHNICAL_NOTE);
+        informationPoint = new Intervention(new Delegate("testUserName", "testFullName"),
+                InterventionType.INFORMATION_POINT);
 
         queue = new InterventionPriorityQueue();
 
@@ -32,7 +37,7 @@ public class InterventionPriorityQueueTest {
     }
 
     @Test
-     void popOrderWithoutDuplicatesTest(){
+    void popOrderWithoutDuplicatesTest() {
         assertEquals(queue.pop(), technicalNote);
         assertEquals(queue.pop(), informationPoint);
         assertEquals(queue.pop(), directIntervention);
@@ -41,9 +46,11 @@ public class InterventionPriorityQueueTest {
     }
 
     @Test
-     void popOrderWithDuplicatesTest(){
-        Intervention technicalLater = new Intervention(new Delegate(),InterventionType.TECHNICAL_NOTE);
-        Intervention questionLater = new Intervention(new Delegate(),InterventionType.QUESTION_OR_NEW_TOPIC);
+    void popOrderWithDuplicatesTest() {
+        Intervention technicalLater = new Intervention(new Delegate("testUserName", "testFullName"),
+                InterventionType.TECHNICAL_NOTE);
+        Intervention questionLater = new Intervention(new Delegate("testUserName", "testFullName"),
+                InterventionType.QUESTION_OR_NEW_TOPIC);
 
         queue.push(questionLater);
         queue.push(technicalLater);
@@ -64,7 +71,8 @@ public class InterventionPriorityQueueTest {
 
         assertEquals(queue.pop(), directIntervention);
 
-        Intervention technicalLater = new Intervention(new Delegate(), InterventionType.TECHNICAL_NOTE);
+        Intervention technicalLater = new Intervention(new Delegate("testUserName", "testFullName"),
+                InterventionType.TECHNICAL_NOTE);
         queue.push(technicalLater);
         queue.remove(joke);
 

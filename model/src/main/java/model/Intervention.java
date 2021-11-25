@@ -14,11 +14,20 @@ public class Intervention implements Comparable<Intervention>{
         timestamp = LocalDateTime.now();
     }
 
+    public InterventionType getType() {
+        return type;
+    }
+
     @Override
     public int compareTo(Intervention other) {
         int priorityOrder = type.compareTo(other.type);
         if(priorityOrder == 0) {
-            return timestamp.compareTo(other.timestamp);
+            int timestampOrder = timestamp.compareTo(other.timestamp);
+            if(timestampOrder == 0){
+                return owner.getUsername().compareTo(other.owner.getUsername());
+            }
+
+            return timestampOrder;
         }
 
         return priorityOrder;
@@ -30,5 +39,10 @@ public class Intervention implements Comparable<Intervention>{
             return this.compareTo((Intervention) obj) == 0;
 
         return false;
+    }
+
+    @Override
+    public String toString(){
+        return owner.getUsername() + "@" + type;
     }
 }
