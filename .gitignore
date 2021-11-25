@@ -4,3 +4,5 @@ client/target
 server/target
 model/target
 logs
+
+*.iml
