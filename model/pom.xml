@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>model</artifactId>
+  <version>0.1</version>
+
+  <parent>
+    <groupId>deii</groupId>
+    <artifactId>InterventionManager</artifactId>
+    <version>0.1</version>
+  </parent>
+
+</project>
