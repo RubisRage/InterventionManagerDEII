@@ -15,16 +15,11 @@ public class InterventionTest {
 
     @BeforeEach
     public void setUp(){
-         directIntervention = new Intervention(new Delegate("testUserName", "testFullName"),
-                 InterventionType.DIRECT_INTERVENTION);
-         joke = new Intervention(new Delegate("testUserName", "testFullName"),
-                 InterventionType.JOKE);
-         question = new Intervention(new Delegate("testUserName", "testFullName"),
-                 InterventionType.QUESTION_OR_NEW_TOPIC);
-         technicalNote = new Intervention(new Delegate("testUserName", "testFullName"),
-                 InterventionType.TECHNICAL_NOTE);
-         informationPoint = new Intervention(new Delegate("testUserName", "testFullName"),
-                 InterventionType.INFORMATION_POINT);
+         directIntervention = TestUtils.createBaseIntervention(InterventionType.DIRECT_INTERVENTION);
+         joke = TestUtils.createBaseIntervention(InterventionType.JOKE);
+         question = TestUtils.createBaseIntervention(InterventionType.QUESTION_OR_NEW_TOPIC);
+         technicalNote = TestUtils.createBaseIntervention(InterventionType.TECHNICAL_NOTE);
+         informationPoint = TestUtils.createBaseIntervention(InterventionType.INFORMATION_POINT);
     }
 
     @Test
@@ -39,8 +34,7 @@ public class InterventionTest {
 
     @Test
     public void comparingByTimestampTest(){
-        Intervention directInterventionLater = new Intervention(new Delegate("testUserName",
-                "testFullName"), InterventionType.DIRECT_INTERVENTION);
+        Intervention directInterventionLater = TestUtils.createBaseIntervention(InterventionType.DIRECT_INTERVENTION);
         assertTrue(directIntervention.compareTo(directInterventionLater) < 0);
     }
 

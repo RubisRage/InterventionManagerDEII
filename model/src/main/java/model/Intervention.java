@@ -35,8 +35,8 @@ public class Intervention implements Comparable<Intervention>{
 
     @Override
     public boolean equals(Object obj){
-        if(obj instanceof Intervention)
-            return this.compareTo((Intervention) obj) == 0;
+        if(obj instanceof Intervention other)
+            return this.compareTo(other) == 0;
 
         return false;
     }

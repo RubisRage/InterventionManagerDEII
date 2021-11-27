@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Delegate {
     private final String username;
     private final String fullname;
@@ -31,5 +33,19 @@ public class Delegate {
 
     public Intervention createIntervention(InterventionType interventionType){
         return new Intervention(this, interventionType);
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(username, fullname);
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof Delegate other){
+            return this.username.equals(other.username);
+        }
+
+        return false;
     }
 }

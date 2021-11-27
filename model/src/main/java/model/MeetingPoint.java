@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class MeetingPoint {
     private final String description;
     private final Delegate speaker;
@@ -29,7 +31,22 @@ public class MeetingPoint {
         currentIntervention = null;
     }
 
-    public void passIntervention() {
+    public void nextIntervention() {
         currentIntervention = interventionQueue.pop();
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(description, speaker);
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof MeetingPoint other){
+            return this.description.equals(other.description)
+                    && this.speaker.equals(other.speaker);
+        }
+
+        return false;
     }
 }
