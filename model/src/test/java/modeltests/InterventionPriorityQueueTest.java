@@ -1,7 +1,5 @@
 package modeltests;
 
-
-import model.Delegate;
 import model.Intervention;
 import model.InterventionPriorityQueue;
 import model.InterventionType;
@@ -16,16 +14,11 @@ public class InterventionPriorityQueueTest {
 
     @BeforeEach
     void setUp() {
-        directIntervention = new Intervention(new Delegate("testUserName", "testFullName"),
-                InterventionType.DIRECT_INTERVENTION);
-        joke = new Intervention(new Delegate("testUserName", "testFullName"),
-                InterventionType.JOKE);
-        question = new Intervention(new Delegate("testUserName", "testFullName"),
-                InterventionType.QUESTION_OR_NEW_TOPIC);
-        technicalNote = new Intervention(new Delegate("testUserName", "testFullName"),
-                InterventionType.TECHNICAL_NOTE);
-        informationPoint = new Intervention(new Delegate("testUserName", "testFullName"),
-                InterventionType.INFORMATION_POINT);
+        directIntervention = TestUtils.createBaseIntervention(InterventionType.DIRECT_INTERVENTION);
+        joke = TestUtils.createBaseIntervention(InterventionType.JOKE);
+        question = TestUtils.createBaseIntervention(InterventionType.QUESTION_OR_NEW_TOPIC);
+        technicalNote = TestUtils.createBaseIntervention(InterventionType.TECHNICAL_NOTE);
+        informationPoint = TestUtils.createBaseIntervention(InterventionType.INFORMATION_POINT);
 
         queue = new InterventionPriorityQueue();
 
@@ -47,10 +40,8 @@ public class InterventionPriorityQueueTest {
 
     @Test
     void popOrderWithDuplicatesTest() {
-        Intervention technicalLater = new Intervention(new Delegate("testUserName", "testFullName"),
-                InterventionType.TECHNICAL_NOTE);
-        Intervention questionLater = new Intervention(new Delegate("testUserName", "testFullName"),
-                InterventionType.QUESTION_OR_NEW_TOPIC);
+        Intervention technicalLater = TestUtils.createBaseIntervention(InterventionType.TECHNICAL_NOTE);
+        Intervention questionLater = TestUtils.createBaseIntervention(InterventionType.QUESTION_OR_NEW_TOPIC);
 
         queue.push(questionLater);
         queue.push(technicalLater);
@@ -71,8 +62,7 @@ public class InterventionPriorityQueueTest {
 
         assertEquals(queue.pop(), directIntervention);
 
-        Intervention technicalLater = new Intervention(new Delegate("testUserName", "testFullName"),
-                InterventionType.TECHNICAL_NOTE);
+        Intervention technicalLater = TestUtils.createBaseIntervention(InterventionType.TECHNICAL_NOTE);
         queue.push(technicalLater);
         queue.remove(joke);
 

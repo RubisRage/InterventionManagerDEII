@@ -11,9 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MeetingPointTest {
 
-    private Intervention createBaseIntervention(InterventionType interventionType){
-        return new Intervention(new Delegate("testUserName", "testFullName"), interventionType);
-    }
 
     @BeforeEach
     void setUp(){

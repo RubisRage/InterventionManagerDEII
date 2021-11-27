@@ -31,11 +31,6 @@
         to GitHub template size restrictions. You can download the full SDK from https://openjfx.io -->
         <jvm.modules>javafx.media,javafx.controls,javafx.fxml,java.logging</jvm.modules>
 
-        <!-- Set the project to UTF-8, avoiding warnings in the build logs -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
 
         <!-- Used to set both the path to find the JavaFX modules and also the versions for Maven dependencies -->
         <javafx.version>16</javafx.version>
@@ -45,22 +40,17 @@
         grab a unique UUID via https://www.uuidgenerator.net -->
         <windows.upgrade.uuid>d4477c52-4497-11ec-81d3-0242ac130003</windows.upgrade.uuid>
         <!-- This is used to set many user-visible fields in the Windows Installer. See win-jpackage.txt -->
-        <windows.vendor>Sample</windows.vendor>
+        <windows.vendor>Delegación de Estudiantes de la Escuelta de Ingeniería Informática</windows.vendor>
 
         <!-- JPRO -->
         <jpro.version>2021.2.0</jpro.version>
     </properties>
 
     <repositories>
-
         <repository>
-
             <id>jpro - sandec repository</id>
-
             <url>https://sandec.jfrog.io/artifactory/repo</url>
-
         </repository>
-
     </repositories>
 
     <dependencies>
@@ -71,13 +61,11 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency> -->
-
-	<dependency>
-		<groupId>deii</groupId>
-		<artifactId>model</artifactId>
-		<version>0.1</version>
-	</dependency>
-
+        <dependency>
+            <groupId>deii</groupId>
+            <artifactId>model</artifactId>
+            <version>0.1</version>
+        </dependency>
 
         <!-- This downloads the platform specific JavaFX libraries used by the project. -->
         <!-- For the final installable, the JavaFX dependencies are provided via modules, but by including these here
