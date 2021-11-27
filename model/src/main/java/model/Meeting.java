@@ -2,9 +2,7 @@ package model;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
+import java.util.*;
 
 public class Meeting {
     private final Map<String, Attendant> attendants;
@@ -47,31 +45,67 @@ public class Meeting {
         return currentMeetingPointIndex > 0;
     }
 
+    public void addAttendant(Delegate delegate){
+        if(attendants.containsKey(delegate.getUsername())){
+            Attendant attendant = attendants.get(delegate.getUsername());
+
+            attendant.onMeeting = true;
+            attendant.leaveHour = null;
+        } else {
+            attendants.put(delegate.getUsername(), new Attendant(delegate));
+        }
+    }
+
+    public void retireAttendant(Delegate delegate){
+        if(attendants.containsKey(delegate.getUsername())){
+            Attendant attendant = attendants.get(delegate.getUsername());
+
+            if(attendant.onMeeting){
+                attendant.onMeeting = false;
+                attendant.leaveHour = LocalDateTime.now();
+            }
+        }
+    }
+
+    public List<Attendant> getAttendants(){
+        return new ArrayList<Attendant>(attendants.values());
+    }
+
     public static class Attendant {
-        private LocalDateTime in, out;
-        private Delegate attendant;
+        private final LocalDateTime joinHour;
+        private LocalDateTime leaveHour;
+        private final Delegate delegate;
         private Boolean onMeeting;
 
         public Attendant(Delegate attendant){
-            this.attendant = attendant;
-            in = LocalDateTime.now();
+            this.delegate = attendant;
+            joinHour = LocalDateTime.now();
             onMeeting = true;
         }
 
-        public LocalDateTime getIn() {
-            return in;
+        public LocalDateTime getJoinHour() {
+            return joinHour;
         }
 
         public Boolean onMeeting() {
             return onMeeting;
         }
 
-        public LocalDateTime getOut() {
-            return out;
+        public LocalDateTime getLeaveHour() {
+            return leaveHour;
         }
 
-        public Delegate getAttendant() {
-            return attendant;
+        public Delegate getDelegate() {
+            return delegate;
+        }
+
+        @Override
+        public boolean equals(Object obj){
+            if(obj instanceof Attendant other){
+                return this.delegate.equals(other.delegate);
+            }
+
+            return false;
         }
     }
 }

@@ -65,6 +65,7 @@
             <groupId>deii</groupId>
             <artifactId>model</artifactId>
             <version>0.1</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- This downloads the platform specific JavaFX libraries used by the project. -->
