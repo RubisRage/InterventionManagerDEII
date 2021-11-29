@@ -88,7 +88,7 @@ public class MeetingTest {
     }
 
     @Test
-    void reentryAttendants() {
+    void reentryAttendantsTest() {
 
         meeting.retireAttendant(delegate1);
         meeting.retireAttendant(delegate3);
