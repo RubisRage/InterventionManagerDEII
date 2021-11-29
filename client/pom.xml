@@ -14,7 +14,7 @@
 
     <properties>
         <!-- Set this to the class with the main method for your application -->
-        <main-class>Main</main-class>
+        <main-class>client.control.Main</main-class>
         <!-- Change your app's name to something interesting... but you might want to avoid spaces
         just to safe for compatibility across operating systems. -->
         <app.name>InterventionManagerDEII</app.name>
@@ -242,7 +242,7 @@
                     <JVMArgs>
                         <!-- <JVMArg>your-args</JVMArg> -->
                     </JVMArgs>
-                    <mainClassName>org.example.App</mainClassName>
+                    <mainClassName>client.view.gui.ViewManager</mainClassName>
                     <openingPath>/</openingPath>
                 </configuration>
 

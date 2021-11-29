@@ -1,23 +1,21 @@
 package client.view.persistence;
 
-import model.Delegate;
 import model.Intervention;
 import model.Meeting;
-import model.client.MeetingNotifier;
-import model.client.Requester;
+import model.client.Synchronizer;
 
 import java.io.IOException;
 import java.net.Socket;
 
-public class ServerHandler implements Requester, MeetingNotifier {
+public class ServerClient implements Synchronizer {
 
-    private static ServerHandler instance;
+    private static ServerClient instance;
     private static String url;
     private static Integer port;
 
     private Socket socket;
 
-    private ServerHandler(String url, Integer port){
+    private ServerClient(String url, Integer port){
         try {
             socket = new Socket(url, port);
         } catch (IOException e) {
@@ -27,15 +25,15 @@ public class ServerHandler implements Requester, MeetingNotifier {
     }
 
     public static void setServer(String url, Integer port){
-        if(ServerHandler.url == null && ServerHandler.port == null) {
-            ServerHandler.url = url;
-            ServerHandler.port = port;
+        if(ServerClient.url == null && ServerClient.port == null) {
+            ServerClient.url = url;
+            ServerClient.port = port;
         }
     }
 
-    public static ServerHandler getInstance(){
+    public static ServerClient getInstance(){
         if(instance == null){
-            instance = new ServerHandler(ServerHandler.url, ServerHandler.port);
+            instance = new ServerClient(ServerClient.url, ServerClient.port);
         }
 
         return instance;
@@ -62,17 +60,22 @@ public class ServerHandler implements Requester, MeetingNotifier {
     }
 
     @Override
-    public Delegate authenticate(String username, String password) {
-        return null;
+    public void login(String username, String password) {
+
     }
 
     @Override
-    public Meeting createMeeting(Meeting meeting) {
-        return null;
+    public void logout() {
+
     }
 
     @Override
-    public Meeting joinMeeting() {
-        return null;
+    public void createMeeting(Meeting meeting) {
+
+    }
+
+    @Override
+    public void joinMeeting() {
+
     }
 }
