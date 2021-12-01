@@ -1,6 +1,5 @@
 package client.view.gui;
 
-import client.control.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +19,7 @@ public class ViewManager {
     }
 
     private Scene currentScene;
-    private Map<View, String> views;
+    private final Map<View, String> views;
 
     private ViewManager() {
         currentScene = null;
@@ -37,7 +36,7 @@ public class ViewManager {
                 currentScene.setRoot(loadFXML(views.get(view)));
 
         } catch (IOException e) {
-            System.err.println("Error occured while loading scene");
+            System.err.println("Error occured while loading scene: " + e.getMessage());
             e.printStackTrace();
 
             System.exit(1);
