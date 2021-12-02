@@ -7,7 +7,7 @@ import java.util.Observer;
 public class ViewManager {
     private static ViewManager instance;
 
-    public static ViewManager getInstance(){
+    public static ViewManager getVM(){
         if(instance == null)
             instance = new ViewManager();
 

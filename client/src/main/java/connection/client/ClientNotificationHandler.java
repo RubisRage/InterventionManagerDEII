@@ -8,16 +8,16 @@ public class ClientNotificationHandler implements NotificationHandler {
     @Override
     public void handleAuthResponse(AuthResponse r) {
         if(r.ack()){
-            InterventionManager.getInstance().setUser(r.getUser());
+            InterventionManager.getIM().setUser(r.getUser());
         }
 
-        ViewManager.getInstance().getView().update();
+        ViewManager.getVM().getView().update();
     }
 
     @Override
     public void handleJoinMeetingResponse(JoinMeetingResponse r) {
         if(r.ack()){
-            InterventionManager.getInstance().setCurrentMeeting(r.getMeeting());
+            InterventionManager.getIM().setCurrentMeeting(r.getMeeting());
         }
     }
 

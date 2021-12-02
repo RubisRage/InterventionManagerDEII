@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ViewManager vm = ViewManager.getInstance();
+        ViewManager vm = ViewManager.getVM();
         vm.setView(new LoginView());
 
         stage.setScene(vm.getScene());

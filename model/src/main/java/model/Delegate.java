@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Delegate {
+public class Delegate implements Serializable {
     private final String username;
     private final String fullname;
     private final Boolean isModerator;

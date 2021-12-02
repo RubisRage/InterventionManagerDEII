@@ -68,6 +68,15 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>deii</groupId>
+            <artifactId>model</artifactId>
+            <version>0.1</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+
         <!-- This downloads the platform specific JavaFX libraries used by the project. -->
         <!-- For the final installable, the JavaFX dependencies are provided via modules, but by including these here
          they work nicely with with IDEs and other Maven plugins (e.g. the javafx:run). -->

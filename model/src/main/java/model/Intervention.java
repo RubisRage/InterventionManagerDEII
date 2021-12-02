@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Intervention implements Comparable<Intervention>{
+public class Intervention implements Comparable<Intervention>, Serializable {
     private final InterventionType type;
     private final LocalDateTime timestamp;
     private final Delegate owner;

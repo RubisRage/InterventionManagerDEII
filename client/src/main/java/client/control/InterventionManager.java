@@ -39,7 +39,11 @@ public class InterventionManager {
 
     private static InterventionManager interventionManager;
 
-    public static InterventionManager getInstance(){
+    public static InterventionManager getIM(){
+        if(interventionManager == null) {
+            interventionManager = new InterventionManager();
+        }
+
         return interventionManager;
     }
 }

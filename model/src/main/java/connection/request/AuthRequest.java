@@ -1,6 +1,7 @@
 package connection.request;
 
-public class AuthRequest implements Request{
+public record AuthRequest(String username, String encryptedPassword) implements Request {
+
     @Override
     public void accept(RequestHandler handler) {
         handler.handleAuthRequest(this);
