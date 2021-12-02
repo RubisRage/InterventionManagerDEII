@@ -1,7 +1,7 @@
 package client.control;
 
-import client.view.gui.LoginView;
-import client.view.gui.ViewManager;
+import client.gui.LoginView;
+import client.gui.ViewManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

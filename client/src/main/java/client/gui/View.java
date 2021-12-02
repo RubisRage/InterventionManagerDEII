@@ -1,4 +1,4 @@
-package client.view.gui;
+package client.gui;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
