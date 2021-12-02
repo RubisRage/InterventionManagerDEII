@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AttendantList {
+public class AttendantList implements Serializable {
 
     private final Map<String, Attendant> attendants;
 
@@ -40,7 +41,16 @@ public class AttendantList {
         return new ArrayList<Attendant>(attendants.values());
     }
 
-    public static class Attendant {
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof AttendantList other){
+            return this.attendants.equals(attendants);
+        }
+
+        return false;
+    }
+
+    public static class Attendant implements Serializable{
         private final LocalDateTime joinHour;
         private LocalDateTime leaveHour;
         private final Delegate delegate;

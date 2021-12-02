@@ -1,9 +1,5 @@
-package modeltests;
+package model;
 
-import model.AttendantList;
-import model.Delegate;
-import model.Meeting;
-import model.MeetingPoint;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

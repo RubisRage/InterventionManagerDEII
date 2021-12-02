@@ -1,6 +1,9 @@
 package connection.request;
 
-public class CreateMeetingRequest implements Request {
+import model.Meeting;
+
+public record CreateMeetingRequest(Meeting meeting) implements Request {
+
     @Override
     public void accept(RequestHandler handler) {
         handler.handleCreateMeetingRequest(this);

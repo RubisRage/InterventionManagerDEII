@@ -1,8 +1,5 @@
-package modeltests;
+package model;
 
-import model.Intervention;
-import model.InterventionPriorityQueue;
-import model.InterventionType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,10 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
 
-public class Meeting {
+public class Meeting implements Serializable {
     private final LinkedHashSet<MeetingPoint> meetingPoints;
     private final LocalDate date;
 
@@ -53,5 +53,16 @@ public class Meeting {
 
     public AttendantList getAttendantList() {
         return attendantList;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Meeting other){
+            return this.date.equals(other.date)
+                    && this.meetingPoints.equals(other.meetingPoints)
+                    && this.attendantList.equals(other.attendantList);
+        }
+
+        return false;
     }
 }

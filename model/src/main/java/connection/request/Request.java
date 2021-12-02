@@ -1,6 +1,8 @@
 package connection.request;
 
-public interface Request {
+import java.io.Serializable;
+
+public interface Request extends Serializable {
 
     void accept(RequestHandler handler);
 

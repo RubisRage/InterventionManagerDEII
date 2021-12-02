@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class MeetingPoint {
+public class MeetingPoint implements Serializable {
     private final String description;
     private final Delegate speaker;
     private final InterventionPriorityQueue interventionQueue;

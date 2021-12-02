@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.TreeSet;
 
-public class InterventionPriorityQueue {
+public class InterventionPriorityQueue implements Serializable {
     private final TreeSet<Intervention> queue;
 
     public InterventionPriorityQueue()
