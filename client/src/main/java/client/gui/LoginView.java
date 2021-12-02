@@ -1,8 +1,10 @@
 package client.gui;
 
+import client.control.InterventionManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.Intervention;
 
 
 public class LoginView implements View{
@@ -19,6 +21,8 @@ public class LoginView implements View{
 
     @Override
     public void update(){
-
+        if(InterventionManager.getIM().getUser() != null) {
+            //ViewManager.getVM().setView();
+        }
     }
 }
