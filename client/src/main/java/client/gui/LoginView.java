@@ -16,4 +16,9 @@ public class LoginView implements View{
     private void loginCallback(){
 
     }
+
+    @Override
+    public void update(){
+
+    }
 }

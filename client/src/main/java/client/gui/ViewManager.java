@@ -2,6 +2,8 @@ package client.gui;
 
 import javafx.scene.Scene;
 
+import java.util.Observer;
+
 public class ViewManager {
     private static ViewManager instance;
 
@@ -12,20 +14,27 @@ public class ViewManager {
         return instance;
     }
 
-    private Scene currentScene;
+    private Scene scene;
+    private View currentView;
 
     private ViewManager() {
-        currentScene = null;
+        scene = null;
+        currentView = null;
+    }
+
+    public View getView() {
+        return currentView;
     }
 
     public void setView(View view){
-        if (currentScene == null)
-            currentScene = new Scene(view.load());
+        currentView = view;
+        if (scene == null)
+            scene = new Scene(view.load());
         else
-            currentScene.setRoot(view.load());
+            scene.setRoot(view.load());
     }
 
     public Scene getScene(){
-        return currentScene;
+        return scene;
     }
 }

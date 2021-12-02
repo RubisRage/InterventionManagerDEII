@@ -27,4 +27,6 @@ public interface View {
 
         return p;
     }
+
+    void update();
 }
