@@ -1,5 +1,6 @@
 package client.control;
 
+import client.gui.HomeView;
 import client.gui.ViewManager;
 import connection.notification.*;
 
@@ -10,7 +11,7 @@ public class ClientNotificationHandler implements NotificationHandler {
             InterventionManager.getIM().setUser(r.getUser());
         }
 
-        ViewManager.getVM().getView().update();
+        ViewManager.getVM().setView(new HomeView());
     }
 
     @Override
@@ -28,13 +29,7 @@ public class ClientNotificationHandler implements NotificationHandler {
             InterventionManager.getIM().setCurrentMeeting(null);
         }
 
-        ViewManager.getVM().getView().update();
-    }
-
-    @Override
-    public void handleLogoutResponse(LogoutResponse r) {
-
-        ViewManager.getVM().getView().update();
+        ViewManager.getVM().setView(new HomeView());
     }
 
     @Override

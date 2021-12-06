@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class HomeView implements View, Initializable {
 
     @FXML
-    private Label fullNameLabel;
+    private Label fullnameLabel;
 
     @FXML
     private ImageView userImage;

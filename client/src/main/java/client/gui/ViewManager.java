@@ -2,25 +2,15 @@ package client.gui;
 
 import javafx.scene.Scene;
 
-import java.util.Observer;
-
 public class ViewManager {
-    private static ViewManager instance;
+    private static final ViewManager instance = new ViewManager();
 
     public static ViewManager getVM(){
-        if(instance == null)
-            instance = new ViewManager();
-
         return instance;
     }
 
-    private Scene scene;
-    private View currentView;
-
-    private ViewManager() {
-        scene = null;
-        currentView = null;
-    }
+    private Scene scene = null;
+    private View currentView = null;
 
     public View getView() {
         return currentView;
