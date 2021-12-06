@@ -1,5 +1,7 @@
 package connection.notification;
 
-public interface Notification {
+import java.io.Serializable;
+
+public interface Notification extends Serializable {
     void accept(NotificationHandler handler);
 }

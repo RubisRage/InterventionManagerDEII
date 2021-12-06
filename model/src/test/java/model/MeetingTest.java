@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MeetingTest {
 
     private Meeting meeting;
-    private MeetingPoint first, second, third, fourth, fifth;
+    private MeetingItem first, second, third, fourth, fifth;
 
     @BeforeEach
     void setUp(){
@@ -19,61 +19,61 @@ public class MeetingTest {
         Delegate delegate3 = new Delegate("delegate3", "fulldelegate3");
         Delegate delegate4 = new Delegate("delegate4", "fulldelegate4");
 
-        first = new MeetingPoint("first", delegate1);
-        second = new MeetingPoint("second", delegate2);
-        third = new MeetingPoint("third", delegate2);
-        fourth = new MeetingPoint("fourth", delegate3);
-        fifth = new MeetingPoint("fifth", delegate4);
+        first = new MeetingItem("first", delegate1);
+        second = new MeetingItem("second", delegate2);
+        third = new MeetingItem("third", delegate2);
+        fourth = new MeetingItem("fourth", delegate3);
+        fifth = new MeetingItem("fifth", delegate4);
 
-        meeting.addMeetingPoint(first);
-        meeting.addMeetingPoint(second);
-        meeting.addMeetingPoint(third);
-        meeting.addMeetingPoint(fourth);
-        meeting.addMeetingPoint(fifth);
+        meeting.addMeetingItem(first);
+        meeting.addMeetingItem(second);
+        meeting.addMeetingItem(third);
+        meeting.addMeetingItem(fourth);
+        meeting.addMeetingItem(fifth);
     }
 
     @Test
     void meetingWithNoRegressionTest() {
-        assertTrue(meeting.hasNextMeetingPoint());
-        assertFalse(meeting.hasPreviousMeetingPoint());
-        assertEquals(meeting.getCurrentMeetingPoint(), first);
+        assertTrue(meeting.hasNextMeetingItem());
+        assertFalse(meeting.hasPreviousMeetingItem());
+        assertEquals(meeting.getCurrentMeetingItem(), first);
 
-        meeting.nextMeetingPoint();
+        meeting.nextMeetingItem();
 
-        assertTrue(meeting.hasNextMeetingPoint());
-        assertTrue(meeting.hasPreviousMeetingPoint());
-        assertEquals(meeting.getCurrentMeetingPoint(), second);
+        assertTrue(meeting.hasNextMeetingItem());
+        assertTrue(meeting.hasPreviousMeetingItem());
+        assertEquals(meeting.getCurrentMeetingItem(), second);
 
-        meeting.nextMeetingPoint();
-        meeting.nextMeetingPoint();
-        meeting.nextMeetingPoint();
+        meeting.nextMeetingItem();
+        meeting.nextMeetingItem();
+        meeting.nextMeetingItem();
 
-        assertFalse(meeting.hasNextMeetingPoint());
-        assertTrue(meeting.hasPreviousMeetingPoint());
-        assertEquals(meeting.getCurrentMeetingPoint(), fifth);
+        assertFalse(meeting.hasNextMeetingItem());
+        assertTrue(meeting.hasPreviousMeetingItem());
+        assertEquals(meeting.getCurrentMeetingItem(), fifth);
     }
 
     @Test
     void meetingWithRegressionsTest() {
-        meeting.nextMeetingPoint();
-        meeting.nextMeetingPoint();
-        meeting.nextMeetingPoint();
+        meeting.nextMeetingItem();
+        meeting.nextMeetingItem();
+        meeting.nextMeetingItem();
 
-        assertEquals(meeting.getCurrentMeetingPoint(), fourth);
-        assertTrue(meeting.hasNextMeetingPoint());
-        assertTrue(meeting.hasPreviousMeetingPoint());
+        assertEquals(meeting.getCurrentMeetingItem(), fourth);
+        assertTrue(meeting.hasNextMeetingItem());
+        assertTrue(meeting.hasPreviousMeetingItem());
 
-        meeting.previousMeetingPoint();
+        meeting.previousMeetingItem();
 
-        assertEquals(meeting.getCurrentMeetingPoint(), third);
-        assertTrue(meeting.hasNextMeetingPoint());
-        assertTrue(meeting.hasPreviousMeetingPoint());
+        assertEquals(meeting.getCurrentMeetingItem(), third);
+        assertTrue(meeting.hasNextMeetingItem());
+        assertTrue(meeting.hasPreviousMeetingItem());
 
-        meeting.previousMeetingPoint();
-        meeting.previousMeetingPoint();
+        meeting.previousMeetingItem();
+        meeting.previousMeetingItem();
 
-        assertEquals(meeting.getCurrentMeetingPoint(), first);
-        assertTrue(meeting.hasNextMeetingPoint());
-        assertFalse(meeting.hasPreviousMeetingPoint());
+        assertEquals(meeting.getCurrentMeetingItem(), first);
+        assertTrue(meeting.hasNextMeetingItem());
+        assertFalse(meeting.hasPreviousMeetingItem());
     }
 }

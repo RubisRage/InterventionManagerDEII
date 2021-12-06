@@ -7,6 +7,6 @@ public interface NotificationHandler {
     void handleLogoutResponse(LogoutResponse r);
     void handleNextMeetingItemNotification(NextMeetingItemNotification r);
     void handlePrevMeetingItemNotification(PrevMeetingItemNotification r);
-    void handleCreateIntervetionNotification(CreateInterventionNotification r);
-    void handleCancelIntervetionNotification(CancelInterventionNotification r);
+    void handleCreateInterventionNotification(CreateInterventionNotification r);
+    void handleCancelInterventionNotification(CancelInterventionNotification r);
 }

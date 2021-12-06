@@ -3,13 +3,13 @@ package model;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class MeetingPoint implements Serializable {
+public class MeetingItem implements Serializable {
     private final String description;
     private final Delegate speaker;
     private final InterventionPriorityQueue interventionQueue;
     private Intervention currentIntervention;
 
-    public MeetingPoint(String description, Delegate speaker) {
+    public MeetingItem(String description, Delegate speaker) {
         this.description = description;
         this.speaker = speaker;
         interventionQueue = new InterventionPriorityQueue();
@@ -43,7 +43,7 @@ public class MeetingPoint implements Serializable {
 
     @Override
     public boolean equals(Object obj){
-        if(obj instanceof MeetingPoint other){
+        if(obj instanceof MeetingItem other){
             return this.description.equals(other.description)
                     && this.speaker.equals(other.speaker);
         }

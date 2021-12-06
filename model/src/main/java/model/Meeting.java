@@ -5,46 +5,46 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Meeting implements Serializable {
-    private final LinkedHashSet<MeetingPoint> meetingPoints;
+    private final LinkedHashSet<MeetingItem> meetingItems;
     private final LocalDate date;
 
 
     private final AttendantList attendantList;
-    private Integer currentMeetingPointIndex;
+    private Integer currentMeetingItemIndex;
 
     public Meeting() {
         date = LocalDate.now();
-        meetingPoints = new LinkedHashSet<>();
-        currentMeetingPointIndex = 0;
+        meetingItems = new LinkedHashSet<>();
+        currentMeetingItemIndex = 0;
         attendantList = new AttendantList();
     }
 
-    public void addMeetingPoint(MeetingPoint meetingPoint){
-        meetingPoints.add(meetingPoint);
+    public void addMeetingItem(MeetingItem meetingItem){
+        meetingItems.add(meetingItem);
     }
 
-    public MeetingPoint getCurrentMeetingPoint(){
-        return (MeetingPoint) meetingPoints.toArray()[currentMeetingPointIndex];
+    public MeetingItem getCurrentMeetingItem(){
+        return (MeetingItem) meetingItems.toArray()[currentMeetingItemIndex];
     }
 
-    public void nextMeetingPoint(){
-        if(hasNextMeetingPoint()){
-            currentMeetingPointIndex++;
+    public void nextMeetingItem(){
+        if(hasNextMeetingItem()){
+            currentMeetingItemIndex++;
         }
     }
 
-    public Boolean hasNextMeetingPoint(){
-        return currentMeetingPointIndex < meetingPoints.size() - 1 ;
+    public Boolean hasNextMeetingItem(){
+        return currentMeetingItemIndex < meetingItems.size() - 1 ;
     }
 
-    public void previousMeetingPoint(){
-        if(hasPreviousMeetingPoint()){
-            currentMeetingPointIndex--;
+    public void previousMeetingItem(){
+        if(hasPreviousMeetingItem()){
+            currentMeetingItemIndex--;
         }
     }
 
-    public Boolean hasPreviousMeetingPoint(){
-        return currentMeetingPointIndex > 0;
+    public Boolean hasPreviousMeetingItem(){
+        return currentMeetingItemIndex > 0;
     }
 
     public LocalDate getDate() {
@@ -59,7 +59,7 @@ public class Meeting implements Serializable {
     public boolean equals(Object obj) {
         if(obj instanceof Meeting other){
             return this.date.equals(other.date)
-                    && this.meetingPoints.equals(other.meetingPoints)
+                    && this.meetingItems.equals(other.meetingItems)
                     && this.attendantList.equals(other.attendantList);
         }
 

@@ -15,7 +15,7 @@ public class TestUtils {
         Meeting meeting = new Meeting();
 
         for(int i = 0; i < 4; i++)
-            meeting.addMeetingPoint(new MeetingPoint(testString+i, createBaseDelegate(testString+i)));
+            meeting.addMeetingItem(new MeetingItem(testString+i, createBaseDelegate(testString+i)));
 
         for(int i = 0; i < 4; i++)
             meeting.getAttendantList().addAttendant(createBaseDelegate(testString+i));

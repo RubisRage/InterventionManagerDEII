@@ -12,7 +12,7 @@ public class AttendantListTest {
 
     private AttendantList attendantList;
     private Delegate delegate1, delegate2, delegate3, delegate4;
-    private MeetingPoint first, second, third, fourth, fifth;
+    private MeetingItem first, second, third, fourth, fifth;
 
     @BeforeEach
     void setUp(){
@@ -29,11 +29,11 @@ public class AttendantListTest {
         attendantList.addAttendant(delegate3);
         attendantList.addAttendant(delegate4);
 
-        first = new MeetingPoint("first", delegate1);
-        second = new MeetingPoint("second", delegate2);
-        third = new MeetingPoint("third", delegate2);
-        fourth = new MeetingPoint("fourth", delegate3);
-        fifth = new MeetingPoint("fifth", delegate4);
+        first = new MeetingItem("first", delegate1);
+        second = new MeetingItem("second", delegate2);
+        third = new MeetingItem("third", delegate2);
+        fourth = new MeetingItem("fourth", delegate3);
+        fifth = new MeetingItem("fifth", delegate4);
     }
 
     @Test

@@ -1,6 +1,7 @@
 package client.control;
 
 import connection.client.ServerRequester;
+import connection.request.Request;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,9 +13,9 @@ import model.Meeting;
 import java.io.IOException;
 
 public class InterventionManager {
-    private Delegate user;
-    private Meeting currentMeeting;
-    private ServerRequester serverRequester;
+    private volatile Delegate user;
+    private volatile Meeting currentMeeting;
+    private volatile ServerRequester serverRequester;
 
     private InterventionManager(){
         user = null;
@@ -22,7 +23,7 @@ public class InterventionManager {
     }
 
 
-    public Delegate getUser() {
+    public synchronized Delegate getUser() {
         return user;
     }
 
@@ -42,13 +43,13 @@ public class InterventionManager {
         this.serverRequester = serverRequester;
     }
 
-    public ServerRequester getRequester() {
-        return serverRequester;
+    public void sendRequest(Request r){
+        serverRequester.sendRequest(r);
     }
 
-    private static InterventionManager interventionManager;
+    private static volatile InterventionManager interventionManager;
 
-    public static InterventionManager getIM(){
+    public static synchronized InterventionManager getIM(){
         if(interventionManager == null) {
             interventionManager = new InterventionManager();
         }

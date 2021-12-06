@@ -1,8 +1,10 @@
 package connection.notification;
 
-public class CreateInterventionNotification implements Notification {
+import model.Intervention;
+
+public record CreateInterventionNotification(Intervention intervention) implements Notification {
     @Override
     public void accept(NotificationHandler handler) {
-        handler.handleCreateIntervetionNotification(this);
+        handler.handleCreateInterventionNotification(this);
     }
 }

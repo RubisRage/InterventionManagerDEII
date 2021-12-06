@@ -1,5 +1,6 @@
 package connection.client;
 
+import client.control.ClientNotificationHandler;
 import connection.notification.Notification;
 
 import java.io.IOException;
@@ -31,9 +32,7 @@ public class DEIIServerListener extends Thread implements ServerListener{
         while(isRunning()){
             try {
                 Notification n = (Notification) objectIn.readObject();
-
                 n.accept(new ClientNotificationHandler());
-
             } catch (SocketTimeoutException ignored) {
 
             } catch(ClassNotFoundException | IOException e) {
