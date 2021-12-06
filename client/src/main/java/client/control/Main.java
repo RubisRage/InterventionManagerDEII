@@ -1,5 +1,6 @@
 package client.control;
 
+import client.gui.HomeView;
 import client.gui.LoginView;
 import client.gui.ViewManager;
 import connection.client.DEIIServerRequester;
@@ -37,11 +38,11 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         //establishConnection();
 
         ViewManager vm = ViewManager.getVM();
-        vm.setView(new LoginView());
+        vm.setView(new HomeView());
 
 
         stage.setScene(vm.getScene());

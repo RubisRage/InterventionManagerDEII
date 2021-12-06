@@ -18,11 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DEIIServerListenerTest {
 
-    interface TestRunnable extends Runnable{
-        void stop();
-    }
-
-    private TestRunnable r;
+    private Runnable r;
     private DEIIServerListener sl;
     private ObjectOutputStream objWriter;
 
@@ -33,28 +29,13 @@ public class DEIIServerListenerTest {
 
         objWriter = new ObjectOutputStream(out);
 
-        r = new TestRunnable() {
-            private Boolean running = true;
+        r = () -> {
+            while(true) {
+                try {
+                    sl = new DEIIServerListener(in);
+                    sl.run();
+                } catch (Exception ignored) {
 
-            public synchronized Boolean isRunning(){
-                return running;
-            }
-
-            public synchronized void stop(){
-                running = false;
-                sl.disconnect();
-            }
-
-            @Override
-            public void run(){
-
-                while(isRunning()) {
-                    try {
-                        sl = new DEIIServerListener(in);
-                        sl.run();
-                    } catch (Exception ignored) {
-
-                    }
                 }
             }
         };
@@ -70,7 +51,5 @@ public class DEIIServerListenerTest {
 
         while(InterventionManager.getIM().getUser() == null) Thread.sleep(1000);
         assertEquals(n1.getUser(), InterventionManager.getIM().getUser());
-
-        r.stop();
     }
 }

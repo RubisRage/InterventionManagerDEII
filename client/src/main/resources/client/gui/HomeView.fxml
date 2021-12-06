@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="709.0" prefWidth="1157.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane alignment="CENTER" layoutY="57.0" prefHeight="652.0" prefWidth="1157.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="57.0">
+        <columnConstraints>
+          <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" prefHeight="650.0" prefWidth="374.0" spacing="10.0">
+               <children>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="365.0" text="Unirse a una reunion" />
+                  <Button disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="24.0" prefWidth="349.0" text="Lista de delegados" />
+                  <Button disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Reuniones anteriores" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="686.0" prefWidth="694.0" spacing="20.0" style="-fx-background-color: #7FB2D0;" GridPane.columnIndex="1">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="79.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="200.0" />
+                  <ImageView fx:id="userImage" fitHeight="278.0" fitWidth="278.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/small-logo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="fullNameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="304.0" text="Loading..." />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </children>
+      </GridPane>
+      <AnchorPane layoutY="-90.0" prefHeight="58.0" prefWidth="463.0" style="-fx-background-color: #0066A1;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="31.0" fitWidth="135.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0">
+               <image>
+                  <Image url="@images/full-logo.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="830.0" layoutY="13.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="47.0" styleClass="nf nf-fa-power_off" text="" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
